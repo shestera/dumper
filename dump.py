@@ -100,7 +100,7 @@ class Dump:
  
 	def send_nsca(self):
 		return_code = '0'
-		self.env['output'] = 'create %s - size %s' % (strftime("%Y-%m-%d %H:%M:%S"), '%(dir)s/%(name)s_%(time_str)s%(ext)s' % self.env )
+		self.env['output'] = 'create %s - size %s' % (strftime("%Y-%m-%d %H:%M:%S"), os.path.getsize('%(dir)s/%(name)s_%(time_str)s%(ext)s' % self.env) )
 		msg = ("backup\\t%(name)s\\t%(return_code)s\\t%(output)s\\n" % self.env)
 		cmd = ("%(send_nsca)s -H %(nagios_server)s" % self.env)
 		commands.getstatusoutput('printf "%s" | %s' % (msg,cmd))[0]
