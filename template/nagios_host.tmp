@@ -1,0 +1,9 @@
+define host{
+    use                           generic-host
+    host_name                     backup
+    address                       127.0.0.1
+    active_checks_enabled         0
+    passive_checks_enabled        1 
+    check_freshness               1
+    freshness_threshold             7200
+}

@@ -1,0 +1,10 @@
+define service{
+    use                         generic-service
+    host_name                   backup
+    service_description         %(name)s
+    check_command               check_dummy!3 "No Data from passive check"
+    active_checks_enabled       0
+    passive_checks_enabled      1
+    check_freshness             1
+    freshness_threshold         93600
+    }
