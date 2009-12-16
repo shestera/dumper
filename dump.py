@@ -171,6 +171,7 @@ def parse_setup():
 	parser.add_option("-j", "--job", dest="job")
         parser.add_option("-c", "--cron", dest="crontab", action="store_true")
         parser.add_option("-n", "--nagios", dest="nagios", action="store_true")
+        parser.add_option("-s", "--start", dest="start")
 	(options, arg) = parser.parse_args()
 	return (options, arg)
  
@@ -188,6 +189,8 @@ def main():
 		dump.crontab()
 	elif options.nagios:
                 dump.nagios()
+	elif options.start:
+		dump.start()
 	else:
 		dump.startdump(options.job)
  
